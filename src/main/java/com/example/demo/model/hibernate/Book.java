@@ -1,4 +1,4 @@
-package com.example.demoTEST.model;
+package com.example.demo.model.hibernate;
 
 import javax.persistence.*;
 

@@ -1,8 +1,8 @@
-package com.example.demoTEST.repository;
+package com.example.demo.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.example.demoTEST.model.Book;
+import com.example.demo.model.hibernate.Book;
 
 public interface BookRepository extends CrudRepository<Book, Long> {
 }

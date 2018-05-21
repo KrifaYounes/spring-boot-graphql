@@ -1,4 +1,4 @@
-package com.example.demoTEST.exception;
+package com.example.demo.exception;
 
 import graphql.ErrorType;
 import graphql.ExceptionWhileDataFetching;

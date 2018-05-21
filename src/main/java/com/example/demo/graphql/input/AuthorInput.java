@@ -1,4 +1,4 @@
-package com.example.demoTEST.model;
+package com.example.demo.graphql.input;
 
 import graphql.annotations.annotationTypes.GraphQLField;
 import graphql.annotations.annotationTypes.GraphQLName;

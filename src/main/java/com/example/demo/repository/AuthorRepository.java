@@ -1,8 +1,8 @@
-package com.example.demoTEST.repository;
+package com.example.demo.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.example.demoTEST.model.Author;
+import com.example.demo.model.hibernate.Author;
 
 public interface AuthorRepository extends CrudRepository<Author, Long> {
 }

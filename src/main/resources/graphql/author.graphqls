@@ -10,9 +10,9 @@ input AuthorInput {
     firstName: String
     lastName: String
 }
+
 type Query {
     findAllAuthors: [Author]!
-    countAuthors: Long!
 }
 
 type Mutation {

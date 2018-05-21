@@ -1,18 +1,12 @@
-package com.example.demoTEST;
-import com.example.demoTEST.exception.GraphQLErrorAdapter;
-import com.example.demoTEST.model.Author;
-import com.example.demoTEST.model.Book;
-import com.example.demoTEST.repository.AuthorRepository;
-import com.example.demoTEST.repository.BookRepository;
-import com.example.demoTEST.resolver.AuthorResolver;
-import com.example.demoTEST.resolver.BookResolver;
-import com.example.demoTEST.resolver.Mutation;
-import com.example.demoTEST.resolver.Query;
+package com.example.demo;
+import com.example.demo.exception.GraphQLErrorAdapter;
+import com.example.demo.model.hibernate.Author;
+import com.example.demo.model.hibernate.Book;
+import com.example.demo.repository.AuthorRepository;
+import com.example.demo.repository.BookRepository;
+
 import graphql.ExceptionWhileDataFetching;
 import graphql.GraphQLError;
-import graphql.schema.DataFetchingEnvironment;
-import graphql.schema.DataFetchingEnvironmentBuilder;
-import graphql.schema.DataFetchingEnvironmentImpl;
 import graphql.servlet.GraphQLErrorHandler;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -55,28 +49,6 @@ public class DemoTestApplication {
 			}
 		};
 	}
-
-	@Bean
-	public BookResolver authorResolver(AuthorRepository authorRepository) {
-		return new BookResolver(authorRepository);
-	}
-	
-	@Bean
-	public AuthorResolver bookResolver(BookRepository bookRepository) {
-		return new AuthorResolver(bookRepository);
-	}
-
-	@Bean
-	public Query query(AuthorRepository authorRepository, BookRepository bookRepository) {
-		return new Query(authorRepository, bookRepository);
-	}
-
-	
-	@Bean
-	public Mutation mutation(AuthorRepository authorRepository, BookRepository bookRepository) {
-		return new Mutation(authorRepository, bookRepository);
-	}
-
 	
 	@Bean
 	public CommandLineRunner demo(AuthorRepository authorRepository, BookRepository bookRepository) {
