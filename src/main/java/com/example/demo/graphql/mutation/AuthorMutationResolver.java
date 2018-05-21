@@ -1,12 +1,16 @@
 package com.example.demo.graphql.mutation;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.example.demo.graphql.input.AuthorInput;
+import com.example.demo.graphql.input.BookInput;
 import com.example.demo.model.hibernate.Author;
+import com.example.demo.model.hibernate.Book;
 import com.example.demo.repository.AuthorRepository;
 
 import graphql.annotations.annotationTypes.GraphQLName;
@@ -26,9 +30,19 @@ public class AuthorMutationResolver implements GraphQLMutationResolver {
         Author author = new Author();
         author.setFirstName(authorInput.getFirstName());
         author.setLastName(authorInput.getLastName());
-
+        
+        if (authorInput.getBooks() != null) {
+	        List<BookInput> books = authorInput.getBooks();
+	        List<Book> booksToSave = new ArrayList<>();
+	        books.forEach(book -> 
+	        	booksToSave.add(new Book(
+	        			book.getTitle(), 
+	        			book.getIsbn(), 
+	        			book.getPageCount(), author )));
+	     
+	        author.setBooks(booksToSave);
+        }
         authorRepository.save(author);
-
         return author;
     }
  
@@ -50,8 +64,4 @@ public class AuthorMutationResolver implements GraphQLMutationResolver {
         authorRepository.save(authorToUpdate);
         return authorToUpdate;
     }
-
-   
-   
-
 }

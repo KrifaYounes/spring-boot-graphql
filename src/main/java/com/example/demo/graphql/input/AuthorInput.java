@@ -1,5 +1,7 @@
 package com.example.demo.graphql.input;
 
+import java.util.List;
+
 import graphql.annotations.annotationTypes.GraphQLField;
 import graphql.annotations.annotationTypes.GraphQLName;
 
@@ -11,6 +13,8 @@ public class AuthorInput {
 	@GraphQLField
 	private String lastName;
 
+	private List<BookInput> books;
+	
 	public AuthorInput() {
 		
 	}
@@ -35,6 +39,15 @@ public class AuthorInput {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	
+	public List<BookInput> getBooks() {
+		return books;
+	}
+
+	public void setBooks(List<BookInput> books) {
+		this.books = books;
 	}
 
 	@Override

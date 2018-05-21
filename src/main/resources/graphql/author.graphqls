@@ -3,12 +3,12 @@ type Author {
     firstName: String!
     lastName: String
     books: [Book]
-    
 }
 
 input AuthorInput {
     firstName: String
     lastName: String
+    books: [BookInput]
 }
 
 type Query {
